@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wifi list</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+
+<body>
+  <div id="app-wrapper">
+    <h1>WIFI BYTES</h1>
+    <h2>CAFE LIST</h2>
+    <div class="cafe-list">
+        {% for cafe in cafes %}
+      <div class="cafe-item">
+        <div class="cafe-item__photo"><a href="{{ cafe.map_url }}" target="_blank"><img
+            src="{{ cafe.img_url }}"
+            alt="Cafe image"></div>
+        <div class="cafe-item__name">
+          <h3>{{ cafe.name }}</h3>
+          <div class="cafe-item__info__address">
+            <div>Location: {{ cafe.location }}</div>
+            <div>Seats: {{ cafe.seats }}</div>
+            <div>Coffee: {{ cafe.coffee_price }}</div>
+            <div>Wifi: {% if cafe.has_wifi %}Yes{% else %}No{% endif %}</div>
+            <div>Sockets: {% if cafe.has_sockets %}Yes{% else %}No{% endif %}</div>
+          </div>
+          </a>
+        </div>
+      </div>
+        {% endfor %}
+    </div>
+  </div>
+
+</body>
+
+</html>

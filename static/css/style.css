@@ -1,0 +1,157 @@
+html {
+  font-size: 62.5%;
+  font-weight: 200;
+  color: #404040;
+  font-family: "Roboto", Sans-Serif;
+}
+
+body {
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 200;
+}
+
+a {
+  text-transform: lowercase;
+  text-decoration: none;
+  color: #9ec1b8;
+}
+a:hover {
+  color: #fff;
+}
+
+#app-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#app-wrapper h1 {
+  text-align: center;
+  font-size: 4rem;
+  margin: 3rem auto;
+}
+#app-wrapper h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 3rem auto;
+  color: #395a51;
+}
+#app-wrapper .status-message {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.4rem;
+  background: rgba(57, 90, 81, 0.6);
+  color: #fff;
+  max-width: 50%;
+  padding: 2rem 3rem;
+  border: 5px solid #fff;
+  border-radius: 10px;
+  margin: 1rem auto;
+  display: block;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.cafe-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 90vw;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.cafe-item {
+  position: relative;
+  cursor: pointer;
+  display: grid;
+  grid-template-rows: -webkit-min-content auto;
+  grid-template-rows: min-content auto;
+  grid-template-columns: none;
+  margin: 10px 10px 2rem 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 300ms ease;
+  padding: 1rem;
+}
+.cafe-item__photo {
+  position: relative;
+  overflow: hidden;
+  background-color: #395a51;
+  min-height: -webkit-max-content;
+  min-height: -moz-max-content;
+  min-height: max-content;
+}
+.cafe-item__photo img {
+  display: block;
+  width: 100%;
+  height: 250px; /* Set the specific height you want */
+  object-fit: cover; /* Crop the image */
+  filter: grayscale(0%);
+}
+.cafe-item__name {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto -webkit-min-content -webkit-min-content;
+  grid-template-rows: auto min-content min-content;
+  background-color: #395a51;
+  padding: 2rem;
+  color: #f5f5f5;
+}
+.cafe-item__name h3 {
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
+  font-weight: 200;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #83d2bc;
+}
+.cafe-item__info__address {
+  margin-bottom: 1rem;
+}
+.cafe-item__name:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  right: 2rem;
+  bottom: 2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 300ms ease;
+}
+.cafe-item:hover {
+  box-shadow: 0 0px 2px rgba(0, 0, 0, 0.2);
+}
+.cafe-item:hover .cafe-item__photo img {
+  filter: grayscale(100%);
+}
+.cafe-item:hover .cafe-item__name:after {
+  right: 1rem;
+  bottom: 1rem;
+  width: 20px;
+  height: 20px;
+  border-color: #83d2bc;
+}
+
+@media (min-width: 768px) {
+  .cafe-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .cafe-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 768px) and (orientation: landscape) {
+  .cafe-list {
+    grid-template-columns: 1fr;
+  }
+
+  .cafe-item {
+    grid-template-columns: 1fr 1fr;
+  }
+}
